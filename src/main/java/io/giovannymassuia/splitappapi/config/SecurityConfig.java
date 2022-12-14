@@ -24,7 +24,11 @@ public class SecurityConfig {
         .csrf(CsrfConfigurer::disable)
         .authorizeHttpRequests(auth -> auth
             .anyRequest().authenticated())
+
+        // Required because of Spring Boot 3.0.0. Github issue:
+        // https://github.com/spring-projects/spring-graphql/issues/576
         .securityContext(context -> context.requireExplicitSave(false))
+
         .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
         .sessionManagement(session -> session
             .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
