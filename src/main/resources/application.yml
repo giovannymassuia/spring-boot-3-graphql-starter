@@ -1,0 +1,11 @@
+# enable graphql playground
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://cognito-idp.<region>.amazonaws.com/<user-pool-id>
+# enable log level debug
+# logging:
+#   level:
+#     org.springframework: DEBUG
