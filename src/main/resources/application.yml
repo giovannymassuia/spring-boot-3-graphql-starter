@@ -1,4 +1,3 @@
-# enable graphql playground
 spring:
   security:
     oauth2:
